@@ -24,3 +24,7 @@ cat_features:
 
 
 target: booking_status
+catalog_name: hotel_reservation
+schema_name: pre_processed_data
+ab_test: {}
+pipeline_id: pipeline-0123abcd
