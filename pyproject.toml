@@ -1,5 +1,5 @@
 [project]
-name = "housing-price"
+name = "hotel-reservation"
 version = "0.0.1"
 description = "Housing prices project"
 requires-python = ">=3.11, <3.12"
@@ -33,7 +33,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where =["src"]
-include = ["house_price*"]
+include = ["hotel_reservation*"]
 
 [tool.ruff]
 line-length = 120
