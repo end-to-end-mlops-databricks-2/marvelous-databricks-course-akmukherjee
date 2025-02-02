@@ -22,7 +22,8 @@ cat_features:
   - room_type_reserved
   - market_segment_type
 
-
+columns_to_drop:
+  - Booking_ID
 target: booking_status
 catalog_name: hotel_reservation
 schema_name: pre_processed_data
