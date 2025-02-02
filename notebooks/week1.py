@@ -14,17 +14,13 @@ dbutils.library.restartPython()
 
 # COMMAND ----------
 
-import sys
-import os
 import yaml
-#sys.path.append(os.path.abspath("../src"))  # Add the src directory specifically
-
-from hotel_reservation.data_processor import DataProcessor
+import logging
 
 # COMMAND ----------
 
+from hotel_reservation.data_processor import DataProcessor
 from hotel_reservation.config import ProjectConfig
-import logging
 from pyspark.sql import SparkSession
 
 # Configure logging
