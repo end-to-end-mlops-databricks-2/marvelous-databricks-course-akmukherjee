@@ -51,7 +51,9 @@ ignore = [
     "W291", # Ignore Trailing whitespace
     "W292", # Ignore No newline at end of file
     "W293", # Ignore Blank line contains whitespace
-    "EXE001" # Ignore Executable file with missing shebangs
+    "EXE001", # Ignore Executable file with missing shebangs
+    "I001" # Ignore Unsorted imports
+
 ]
 
 [tool.ruff.format]
