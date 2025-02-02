@@ -46,7 +46,7 @@ select = [
 ]
 ignore = [
     "E501",  # line-too-long
-    "E402"  # Ignoring top-level imports
+    "E402",  # Ignoring top-level imports
     "F821" # Ignore db-utils import since it is Databricks provided
 ]
 
