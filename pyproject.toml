@@ -36,7 +36,6 @@ where =["src"]
 include = ["hotel_reservation*"]
 
 [tool.ruff.lint]
-line-length = 120
 select = [
     "F",  # pyflakes rules
     "E",  # pycodestyle error rules
