@@ -47,7 +47,7 @@ select = [
 ignore = [
     "E501",  # line-too-long
     "E402",  # Ignoring top-level imports
-    "F821" # Ignore db-utils import since it is Databricks provided
+    "F821", # Ignore db-utils import since it is Databricks provided
     "W291", # Ignore Trailing whitespace
     "W292", # Ignore No newline at end of file
     "W293", # Ignore Blank line contains whitespace
