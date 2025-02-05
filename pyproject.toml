@@ -1,5 +1,5 @@
 [project]
-name = "housing-price"
+name = "hotel-reservation"
 version = "0.0.1"
 description = "Housing prices project"
 requires-python = ">=3.11, <3.12"
@@ -33,10 +33,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where =["src"]
-include = ["house_price*"]
+include = ["hotel_reservation*"]
 
-[tool.ruff]
-line-length = 120
+[tool.ruff.lint]
 select = [
     "F",  # pyflakes rules
     "E",  # pycodestyle error rules
@@ -46,6 +45,14 @@ select = [
 ]
 ignore = [
     "E501",  # line-too-long
+    "E402",  # Ignoring top-level imports
+    "F821", # Ignore db-utils import since it is Databricks provided
+    "W291", # Ignore Trailing whitespace
+    "W292", # Ignore No newline at end of file
+    "W293", # Ignore Blank line contains whitespace
+    "EXE001", # Ignore Executable file with missing shebangs
+    "I001" # Ignore Unsorted imports
+
 ]
 
 [tool.ruff.format]
