@@ -11,8 +11,6 @@ from mlflow import MlflowClient
 from mlflow.models import infer_signature
 from pyspark.sql import SparkSession
 from src.hotel_reservation.config import ProjectConfig, Tags
-import random
-import string
 
 class RandomForestModel:
     def __init__(self, config: ProjectConfig, tags: Tags, spark: SparkSession):
