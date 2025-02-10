@@ -1,13 +1,9 @@
-from sklearn.tree import DecisionTreeClassifier
-import random
-from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score
 from sklearn.model_selection import cross_val_score
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
 from imblearn.pipeline import Pipeline as ImbPipeline
 from imblearn.over_sampling import SMOTENC  # Use SMOTENC for categorical features
-from imblearn.over_sampling import SMOTE  #
+from imblearn.over_sampling import SMOTE  # Use SMOTE if all features are numerical
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 import mlflow
@@ -15,8 +11,6 @@ from mlflow import MlflowClient
 from mlflow.models import infer_signature
 from pyspark.sql import SparkSession
 from src.hotel_reservation.config import ProjectConfig, Tags
-from imblearn.over_sampling import SMOTENC  # Use SMOTENC for categorical features
-from imblearn.over_sampling import SMOTE  # Use SMOTE if all features are numerical
 import random, string
 
 class RandomForestModel:
