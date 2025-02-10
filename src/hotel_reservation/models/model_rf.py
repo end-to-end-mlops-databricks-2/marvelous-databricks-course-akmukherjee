@@ -91,7 +91,7 @@ class RandomForestModel:
         Log the model.
         """
         # Adding randomness to the experiment name to avoid overwriting
-        randstr =(''.join(random.choices(string.ascii_lowercase, k=5)))
+        #randstr =(''.join(random.choices(string.ascii_lowercase, k=5)))
         experiment_name =(f'{self.experiment_name}')
         if mlflow.get_experiment_by_name(experiment_name) is None:
             mlflow.create_experiment(name=experiment_name)
