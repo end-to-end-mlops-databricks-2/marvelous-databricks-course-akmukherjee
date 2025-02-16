@@ -1,8 +1,11 @@
 parameters:
   learning_rate: 0.01
-  n_estimators: 1000
-  max_depth: 6
-
+  max_depth: 15
+  random_state: 42
+  n_estimators: 250
+  subsample: 0.8
+  colsample_bytree: 0.8
+  
 num_features:
   - lead_time 
   - arrival_year
@@ -22,10 +25,10 @@ cat_features:
   - room_type_reserved
   - market_segment_type
 
-columns_to_drop:
-  - Booking_ID
+
 target: booking_status
 catalog_name: marvelous_mlops
 schema_name: pre_processed
 experiment_name_basic: /Users/akmukherjee@gmail.com/my-random-forest-experiment
+experiment_name_fe: /Users/akmukherjee@gmail.com/my-random-forest-fe-experiment
 pipeline_id: pipeline-0123abcd
