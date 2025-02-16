@@ -54,7 +54,8 @@ ignore = [
     "I001", # Ignore Unsorted imports,
     "F405", # Import from * since due to SDK mods
     "F401", # Unused import, may be needed later
-    "F811" # Unused import, may be needed later
+    "F811", # Unused import, may be needed later
+    "F403" # Unable to detect Errors
 
 ]
 

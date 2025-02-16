@@ -37,10 +37,6 @@ logger.info(yaml.dump(config, default_flow_style=False))
 
 # COMMAND ----------
 
-config
-
-# COMMAND ----------
-
 spark = SparkSession.builder.getOrCreate()
 df = spark.read.csv("/Volumes/marvelous-mlops/pre-processed/data/Hotel Reservations.csv", header=True,inferSchema=True).toPandas()
 
