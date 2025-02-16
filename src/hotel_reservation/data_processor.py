@@ -4,7 +4,7 @@ from pyspark.sql.functions import current_timestamp, to_utc_timestamp
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder,MinMaxScaler
 
-from hotel_reservation.config import ProjectConfig
+from .config import ProjectConfig
 
 
 class DataProcessor:
@@ -25,9 +25,7 @@ class DataProcessor:
         self.df.drop_duplicates(inplace=True)
         print(f"Number of rows before after dropping duplicates: {len(self.df)}")
 
-        # Drop Columns which are not of interest
-        columns_to_drop = self.config.columns_to_drop
-        self.df.drop(columns=columns_to_drop, inplace=True)
+        
         ####### Handle numeric features #######
         # Removing Outliers
         self.df = self.df[self.df['lead_time'] <= 400]
