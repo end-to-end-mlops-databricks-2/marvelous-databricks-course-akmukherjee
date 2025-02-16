@@ -51,7 +51,7 @@ ignore = [
     "W292", # Ignore No newline at end of file
     "W293", # Ignore Blank line contains whitespace
     "EXE001", # Ignore Executable file with missing shebangs
-    "I001" # Ignore Unsorted imports,
+    "I001", # Ignore Unsorted imports,
     "F405", # Import from * since due to SDK mods
     "F401", # Unused import, may be needed later
     "F811" # Unused import, may be needed later
