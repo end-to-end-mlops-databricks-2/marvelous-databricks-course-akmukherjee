@@ -1,0 +1,16 @@
+# databricks.yml
+bundle:
+  name: marvelous-mlops-akmukherjee
+
+include:
+  - resources/*.yml
+
+variables:
+  cluster_id:
+      description: "Cluster Id of the machine assigned"
+      default: "0201-215348-k7fgqbdn"
+targets:
+  dev:
+    presets:
+      name_prefix: "dev-"
+    default: true

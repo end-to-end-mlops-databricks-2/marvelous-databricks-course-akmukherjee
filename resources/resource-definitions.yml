@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    marvelous_mlops_test_job:
+      name: marvelous-mlops-job
+      tasks:
+        - task_key: pre-processing-week1
+          notebook_task:
+            notebook_path: ../notebooks/week1-v2.py
+          existing_cluster_id: "${var.cluster_id}"
+
+        - task_key: model-train-week2
+          depends_on:
+            - task_key: pre-processing-week1
+          notebook_task:
+            notebook_path: ../notebooks/week2-fe.py
+          existing_cluster_id: "${var.cluster_id}"
+        
+        - task_key: model-serving-fe-week3
+          depends_on:
+            - task_key: model-train-week2
+          notebook_task:
+            notebook_path: ../notebooks/week3-model-serving.py
+          existing_cluster_id: "${var.cluster_id}"
+        
+
+      queue:
+        enabled: true
