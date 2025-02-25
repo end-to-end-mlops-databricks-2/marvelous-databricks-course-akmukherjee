@@ -1,6 +1,7 @@
 # Databricks notebook source
 # MAGIC %load_ext autoreload
 # MAGIC %autoreload 2
+# MAGIC %pip install mlflow
 # MAGIC # Enables autoreload; learn more at https://docs.databricks.com/en/files/workspace-modules.html#autoreload-for-python-modules
 # MAGIC # To disable autoreload; run %autoreload 0
 

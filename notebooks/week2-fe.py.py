@@ -8,13 +8,21 @@
 
 # COMMAND ----------
 
+# MAGIC %pip install databricks-feature-engineering
+
+# COMMAND ----------
+
+# MAGIC %pip install --upgrade databricks-sdk
+
+# COMMAND ----------
+
 # MAGIC %restart_python
 # MAGIC %load_ext autoreload
 # MAGIC %autoreload 2
 
 # COMMAND ----------
 
-# MAGIC %pip install databricks-feature-engineering
+# MAGIC %pip show databricks-sdk
 
 # COMMAND ----------
 
