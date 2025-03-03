@@ -1,8 +1,28 @@
 # Databricks notebook source
 # MAGIC %load_ext autoreload
 # MAGIC %autoreload 2
+# MAGIC %pip install mlflow
+# MAGIC %pip install --upgrade typing_extensions
 # MAGIC # Enables autoreload; learn more at https://docs.databricks.com/en/files/workspace-modules.html#autoreload-for-python-modules
 # MAGIC # To disable autoreload; run %autoreload 0
+
+# COMMAND ----------
+
+# MAGIC %pip install databricks-feature-engineering
+
+# COMMAND ----------
+
+# MAGIC %pip install --upgrade databricks-sdk
+
+# COMMAND ----------
+
+# MAGIC %restart_python
+# MAGIC %load_ext autoreload
+# MAGIC %autoreload 2
+
+# COMMAND ----------
+
+# MAGIC %pip show databricks-sdk
 
 # COMMAND ----------
 
@@ -10,7 +30,7 @@ import mlflow
 from pyspark.sql import SparkSession
 
 from src.hotel_reservation.config import ProjectConfig, Tags
-from src.hotel_reservation.models.model_rf import RandomForestModel
+from src.hotel_reservation.models.model_fe import FeatureLookUpModel
 
 # COMMAND ----------
 
@@ -27,25 +47,30 @@ tags = Tags(**{"git_sha": "abcd12345", "branch": "week2"})
 # COMMAND ----------
 
 # Initialize model with the config path
-rf_model = RandomForestModel(config=config, tags=tags, spark=spark)
+fe_model = FeatureLookUpModel(config=config, tags=tags, spark=spark)
 
 # COMMAND ----------
 
-rf_model.load_data()
-rf_model.prepare_features()
+fe_model.create_feature_table()
+fe_model.define_feature_function()
 
 # COMMAND ----------
 
-rf_model.train()
+fe_model.load_data()
+fe_model.prepare_features()
 
 # COMMAND ----------
 
-rf_model.log_model()
+fe_model.train()
 
 # COMMAND ----------
 
-rf_model.register_model()
+fe_model.log_model()
 
 # COMMAND ----------
 
-rf_model.retrieve_current_run_metadata()
+fe_model.register_model()
+
+# COMMAND ----------
+
+fe_model.retrieve_current_run_metadata()

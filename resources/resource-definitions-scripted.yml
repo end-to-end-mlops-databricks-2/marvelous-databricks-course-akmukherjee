@@ -1,0 +1,39 @@
+# resources/resource-definitions-scripted.yml
+resources:
+  jobs:
+    hotel-reservations:
+      name: hotel-reservations-workflow
+      schedule:
+        quartz_cron_expression: "0 0 6 * *?"
+        timezone_id: "America/New_York"
+        pause_status: ${var.schedule_pause_status}
+      tags:
+        project_name: "hotel-reservations"
+      job_clusters:
+        - job_cluster_key: "hotel-reservations-cluster"
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            data_security_mode: "SINGLE_USER"
+            node_type_id: "m5d.large"
+            driver_node_type_id: "m5d.large"
+            spark_conf:
+              spark.master: local[*, 4]
+              spark.databricks.cluster.profile: singleNode
+            custom_tags:
+              ResourceClass: SingleNode
+            spark_env_vars:
+              PYSPARK_PYTHON: /databricks/python3/bin/python3
+            num_workers: 0
+      tasks:
+        - task_key: "process-data"
+          job_cluster_key: "hotel-reservations-cluster"
+          spark_python_task:
+            python_file: "scripts/process_data.py"
+            parameters:
+              - "--root_path"
+              - ${workspace.root_path}
+              - "--data_path"
+              - "/Volumes/marvelous-mlops/pre-processed/data/Hotel Reservations.csv"
+          libraries:
+            - pypi:
+                package: imbalanced-learn==0.13.0
